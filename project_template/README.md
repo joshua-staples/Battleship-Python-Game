@@ -1,9 +1,20 @@
-# [PROGRAM NAME] 
-[a description of the program]
+# Battleship AI
+One player battleship against an "AI" opponent. 
+Possible options for difficulty. (ie. ship size, or board size)
+Custom option where you can manually set board size and ship length. 
+Your ships on the left (sperate board) and guess board on right. 
+Sound and effects for a hit and a miss. (wave emojis, explosion emoji, splash, green circle, and red x.)
+Posilble time limit per move.
+No two player functionality.
+
+easy
+normal 
+hard
+custom
 
 ## Getting Started
 ---
-[how to install and run the program]
+Download all files and run main. 
 
 ## Project Structure
 ---
@@ -22,8 +33,13 @@ root                    (project root folder)
 
 ## Required Technologies
 ---
-[list required libraries]
+Python 3.6 or newer
+Arcade library
+random library
 
 ## Authors
 ---
-[list author names and emails]
+Joshua Staples - sta16016@byui.edu
+Logan Huston - hus18004@byui.edu
+Spencer Wigren - wig20002@byui.edu
+David Del Sol- del17005@byui.edu
