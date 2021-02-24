@@ -1,0 +1,13 @@
+What program are we going to create? Use your brainstorming from the solo checkpoint to answer this question together.
+We are making Battleship!
+
+What technologies will we use? The answer to this question is mostly already decided. Just take a minute to remind yourselves of the language, libraries and anything else you plan on using.
+We will use Python 3.8+ and the arcade python library as well as the random python library.
+
+What features will we include? The goal of asking this question is to identify what will and what won't be included. Use this simple feature planning guide to help you.
+We will include single player Battleship against an AI opponent and have options for difficulty (impacting board size and ship length).
+We will have a board with your own ships and a second board to guess from. 
+We will not have an option for multiplayer or increased AI difficulty. No score or timer. 
+
+What is your timeline? The answer to this question is mostly already decided. Just take a minute to review the rest of the course schedule together.
+The next 5 weeks. 
