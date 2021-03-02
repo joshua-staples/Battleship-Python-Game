@@ -9,3 +9,17 @@ Ship(Sprite) - a subclass of the Sprite class that is in charge of all of the sh
 setting the image, and collisions. 
 
 UserSelection - a class that handles the user input of clicking, and checks if the clicked location is the location of a ship on the board. 
+
+open_window
+
+location # where the ships are
+
+score # keep track of the score
+
+attack # could call that "fire"
+
+input # users cooridante attact
+
+output_to_console # draw actors
+
+explosion # Change graphic to the explosion graphic
