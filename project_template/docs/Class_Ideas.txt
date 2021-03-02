@@ -1,0 +1,11 @@
+Class Ideas:
+
+Screen - would be in charge of drawing all of the actors every cycle.
+
+Board(Sprite) - a subclass of the Sprite class that is creates a list (or board) that can be populated by images of waves and then have
+ships randomly placed on it. Will be labeled A-J, 1-10.
+
+Ship(Sprite) - a subclass of the Sprite class that is in charge of all of the ships on the board. Handles placing the ships,
+setting the image, and collisions. 
+
+UserSelection - a class that handles the user input of clicking, and checks if the clicked location is the location of a ship on the board. 
