@@ -1,25 +1,21 @@
 Class Ideas:
 
-Screen - would be in charge of drawing all of the actors every cycle.
+Board(Sprite)(Game) - a subclass of the Sprite class that is creates a list (or board) that can be populated by images of waves and then have
+ships randomly placed on it. Will be labeled A-J, 1-10. (Spencer and Logan)
+    explosion # Change graphic to the explosion graphic
+    waves # Changes board to wave emoji
+    prep # weather or not the ships have been placed
+    onupdate # calls itself every second to redraw sprites
 
-Board(Sprite) - a subclass of the Sprite class that is creates a list (or board) that can be populated by images of waves and then have
-ships randomly placed on it. Will be labeled A-J, 1-10.
+Ship(Sprite)(Player) - a subclass of the Sprite class that is in charge of all of the ships on the board. Handles placing the ships,
+setting the image, and collisions. (Josh)
 
-Ship(Sprite) - a subclass of the Sprite class that is in charge of all of the ships on the board. Handles placing the ships,
-setting the image, and collisions. 
+EnemyShip(Sprite)
+UserSelection - a class that handles the user input of clicking, and checks if the clicked location is the location of a
+ship on the board. (David)
 
-UserSelection - a class that handles the user input of clicking, and checks if the clicked location is the location of a ship on the board. 
+**Score - Keeps track of user 
 
-open_window # Display
+**Timer - 
 
-location # where the ships are
-
-score # keep track of the score
-
-attack # could call that "fire"
-
-input # users cooridante attact
-
-output_to_console # draw actors
-
-explosion # Change graphic to the explosion graphic
+Bullets - The projectiles that shoot from the player ship and enemies. Shoot on mouse click. (David)
