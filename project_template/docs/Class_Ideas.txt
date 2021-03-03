@@ -10,7 +10,7 @@ setting the image, and collisions.
 
 UserSelection - a class that handles the user input of clicking, and checks if the clicked location is the location of a ship on the board. 
 
-open_window
+open_window # Display
 
 location # where the ships are
 
