@@ -1,0 +1,4 @@
+LENGTH = 600
+WIDTH = 600
+SCREENNAME = "Battleship"
+FPS = 60
