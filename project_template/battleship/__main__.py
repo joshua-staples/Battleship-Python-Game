@@ -1,15 +1,14 @@
 import arcade
-import screen
 import constants
+from board import Board
 
 def main():
-    arcade.open_window(constants.LENGTH, constants.WIDTH, constants.SCREENNAME)
-    arcade.set_background_color(arcade.csscolor.AQUA)
-    
-    arcade.start_render()
-
-    arcade.finish_render()
-    
+    """ Main method """
+    window = Board()
+    window.setup()
     arcade.run()
 
-main()
+
+if __name__ == "__main__":
+    main()  
+
