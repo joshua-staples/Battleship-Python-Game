@@ -2,7 +2,7 @@ from ship import Ship
 import arcade
 import constants
 
-# https://arcade.academy/examples/sprite_collect_coins_background.html?highlight=background%20images
+
 
 SPRITE_SCALING = 0.5
 SCREEN_HEIGHT = 600
@@ -11,20 +11,38 @@ SCREEN_TITLE = "Battleship"
 FPS = 60
 
 class Board(arcade.Window):
+    """Handles the output of the board. Along with the key inputs of the ship
     
+    Code Based on:
+        # https://arcade.academy/examples/sprite_collect_coins_background.html?highlight=background%20images
+
+    Stereotype:
+        COntroller/ Coordinator
+
+    Authors:
+        Spencer Wigren
+        Logan Huston
+        Josh Staples
+
+    """
 
     def __init__(self):
+        """The set up of the board.
 
+        Args:
+            ship_list = list of ships
+            explosion_list = list of explosions
+
+        """
         super().__init__(constants.WIDTH, constants.HEIGHT, constants.SCREEN_TITLE)
 
         self.ship_list = None
-        # self.wave_background = None
         self.explosion_list = None
-        
-        
+        # self.wave_background = None
+
         arcade.set_background_color(arcade.csscolor.CORNFLOWER_BLUE)
-        self.ship_list = arcade.SpriteList()
-                
+        
+        self.ship_list = arcade.SpriteList()        
         self.explosion_list = arcade.SpriteList()
 
         # Need to find the correct path for the assets        
@@ -33,6 +51,12 @@ class Board(arcade.Window):
         
     
     def setup(self):
+        """Set up of the board.
+
+        Args:
+            self.ship = instance of ship class
+        """
+
         self.ship = Ship(":resources:assets/motor-boat_1f6e5-fe0f.png", constants.SPRITE_SCALING)
         self.ship.center_x = 300
         self.ship.center_y = 300
@@ -41,7 +65,12 @@ class Board(arcade.Window):
 
 
     def on_key_press(self, key, modifiers):
-        """Called whenever a key is pressed. """
+        """Handles the key press and movement
+        called whenever a key is pressed. 
+
+        Args:
+            key = What the key is
+        """
 
         # If the player presses a key, update the speed
         if key == arcade.key.UP:
@@ -54,7 +83,11 @@ class Board(arcade.Window):
             self.ship.change_x = constants.MOVEMENT_SPEED
 
     def on_key_release(self, key, modifiers):
-        """Called when the user releases a key. """
+        """Called when the user releases a key.
+        
+        Args:
+            key = What the key is
+        """
 
         # If a player releases a key, zero out the speed.
         # This doesn't work well if multiple keys are pressed.
@@ -66,10 +99,19 @@ class Board(arcade.Window):
             self.ship.change_x = 0       
 
     def on_update(self, delta_time):
-            self.ship.update()
+        """updates the board
+
+        Args:
+            delta_time Archad: [description]
+        """
+        self.ship.update()
        
     def on_draw(self):
+        """Draws the board
 
+        Args:
+            None.
+        """
         arcade.start_render()
         self.ship_list.draw()
         self.explosion_list.draw()
