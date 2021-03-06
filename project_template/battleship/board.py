@@ -64,7 +64,6 @@ class Board(arcade.Window):
         # self.enemy.center_y = 100
         # self.enemy_list.append(self.Enemy)
 
-
         self.ship = Ship(":resources:assets/motor-boat_1f6e5-fe0f.png", constants.SPRITE_SCALING)
         self.ship.center_x = 300
         self.ship.center_y = 300
