@@ -1,7 +1,8 @@
 from ship import Ship
 import arcade
 import constants
-
+from player import Player
+from enemy import Enemy
 
 
 SPRITE_SCALING = 0.5
@@ -45,6 +46,8 @@ class Board(arcade.Window):
         self.ship_list = arcade.SpriteList()        
         self.explosion_list = arcade.SpriteList()
 
+        self.enemy_list = None
+
         # Need to find the correct path for the assets        
         # self.wave_background = arcade.load_texture(":resources:assets/water-wave_1f30a.png")
         # self.wave_background = arcade.load_texture(":battleship:assets/water-wave_1f30a.png")
@@ -56,6 +59,10 @@ class Board(arcade.Window):
         Args:
             self.ship = instance of ship class
         """
+        # self.enemy = Enemy(":resources:images/alien/alienBlue_front.png", SPRITE_SCALING )
+        # self.enemy.center_x = 100
+        # self.enemy.center_y = 100
+        # self.enemy_list.append(self.Enemy)
 
         self.ship = Ship(":resources:assets/motor-boat_1f6e5-fe0f.png", constants.SPRITE_SCALING)
         self.ship.center_x = 300
