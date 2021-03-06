@@ -59,10 +59,10 @@ class Board(arcade.Window):
         Args:
             self.ship = instance of ship class
         """
-        self.enemy = Enemy(":resources:images/alien/alienBlue_front.png", SPRITE_SCALING )
-        self.enemy.center_x = 100
-        self.enemy.center_y = 100
-        self.enemy_list.append(self.Enemy)
+        # self.enemy = Enemy(":resources:images/alien/alienBlue_front.png", SPRITE_SCALING )
+        # self.enemy.center_x = 100
+        # self.enemy.center_y = 100
+        # self.enemy_list.append(self.Enemy)
 
 
         self.ship = Ship(":resources:assets/motor-boat_1f6e5-fe0f.png", constants.SPRITE_SCALING)
