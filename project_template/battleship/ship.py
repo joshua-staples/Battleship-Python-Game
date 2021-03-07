@@ -2,9 +2,28 @@ import arcade
 import constants
 
 class Ship(arcade.Sprite):
+    """Handles the creation and movement of a player sprite known as the ship. 
     
+    Code Based on:
+        # https://arcade.academy/examples/sprite_move_keyboard.html#sprite-move-keyboard
+
+    Stereotype:
+        Information Holder
+
+    Authors:
+        Josh Staples
+
+    """
     def update(self):
-        """ Move the player """
+        """ 
+        Move the player 
+        
+        Args:
+            center_x = x location of player
+            center_y = y location of player
+            change_x = x next location of player
+            change_y = y next location of player
+        """
         # Move player.
         # Remove these lines if physics engine is moving player.
         self.center_x += self.change_x
