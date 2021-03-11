@@ -39,7 +39,7 @@ class Score(arcade.Sprite):
 
         """
         # Will need to figure out how to fix this code with the team.
-        # I don't know how we are going to consired when the socre increases
+        # I don't know how we are going to consired when the score increases
         # I think that it will be when the players bullets locations hits the enemy location
 
         # Will need to find a way to know where the player hits the enemy
@@ -56,5 +56,5 @@ class Score(arcade.Sprite):
 
         """
         score_output = f"Score: {self.score}"
-        arcade.draw_text(score_output, 0, constants.HEIGHT - 20,
+        arcade.draw_text(score_output, 0, constants.SCREEN_HEIGHT - 20,
                          arcade.csscolor.WHITE, 18)
