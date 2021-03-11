@@ -33,12 +33,12 @@ class Ship(arcade.Sprite):
         # Check for out-of-bounds
         if self.left < 0:
             self.left = 0
-        elif self.right > constants.WIDTH - 1:
-            self.right = constants.WIDTH - 1
+        elif self.right > constants.SCREEN_WIDTH - 1:
+            self.right = constants.SCREEN_WIDTH - 1
 
         if self.bottom < 0:
             self.bottom = 0
-        elif self.top > constants.HEIGHT - 1:
-            self.top = constants.HEIGHT - 1
+        elif self.top > constants.SCREEN_HEIGHT - 1:
+            self.top = constants.SCREEN_HEIGHT - 1
 
     
