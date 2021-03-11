@@ -4,6 +4,7 @@ import constants
 from player import Player
 from enemy import Enemy
 from pathlib import Path
+from score import Score
 
 
 SPRITE_SCALING = 0.5
@@ -19,7 +20,7 @@ class Board(arcade.Window):
         # https://arcade.academy/examples/sprite_collect_coins_background.html?highlight=background%20images
 
     Stereotype:
-        COntroller/ Coordinator
+        Controller/ Coordinator
 
     Authors:
         Spencer Wigren
@@ -52,6 +53,8 @@ class Board(arcade.Window):
         self.cur_dir = Path(__file__).parent
 
         self.assets_dir = self.cur_dir/"assets"
+
+        self.output_Score = Score()
                 
     
     def setup(self):
@@ -115,6 +118,7 @@ class Board(arcade.Window):
         """
         self.ship.update()
        
+       
     def on_draw(self):
         """Draws the board
 
@@ -123,6 +127,7 @@ class Board(arcade.Window):
         """
         arcade.start_render()
         self.ship_list.draw()
-        self.explosion_list.draw()
+        self.explosion_list.draw() 
+        self.output_Score.on_draw()
         # arcade.draw_lrwh_rectangle_textured(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, self.wave_background)
 
