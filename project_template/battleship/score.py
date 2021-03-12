@@ -46,6 +46,8 @@ class Score(arcade.Sprite):
         # if self.player == self.enemy:
         #     # Do we need to change the score increase?
         #     score += 10
+        score += 10
+        return score
         
 
     def on_draw(self):
