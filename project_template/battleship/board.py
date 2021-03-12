@@ -216,6 +216,9 @@ class Board(arcade.Window):
                 self.enemy_ship_list.append(enemy_sprite)
                 self.hit_sound1.play()
 
+            # Will update the score
+            self.output_Score.update_basic()
+
         elif enemy.size == 3:
             for i in range(3):
                 image_no = random.randrange(2)
@@ -236,6 +239,9 @@ class Board(arcade.Window):
 
                 self.enemy_ship_list.append(enemy_sprite)
                 self.hit_sound2.play()
+
+            # Will update the score
+            self.output_Score.update_basic()
 
         elif enemy.size == 2:
             for i in range(3):
@@ -258,8 +264,14 @@ class Board(arcade.Window):
                 self.enemy_ship_list.append(enemy_sprite)
                 self.hit_sound3.play()
 
+            # Will update the score
+            self.output_Score.update_basic()
+
         elif enemy.size == 1:
             self.hit_sound4.play()
+
+            # Will update the score
+            self.output_Score.update_final()
             
     def on_key_press(self, key, modifiers):
         """Handles the key press and movement
