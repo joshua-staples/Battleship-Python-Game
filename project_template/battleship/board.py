@@ -121,10 +121,10 @@ class Board(arcade.Window):
 
          # used frogs and other weird animals because I thought it would be fun
          # this will later be changed to something else if you guys want
-        image_list = (":resources:images/enemies/fishGreen.png",
-                      ":resources:images/enemies/frog_move.png",
-                      ":resources:images/enemies/frog.png",
-                      ":resources:images/enemies/slimeGreen.png")
+        image_list = (self.assets_dir / "fishGreen.png",
+                      self.assets_dir / "frog_move.png",
+                      self.assets_dir / "frog.png",
+                      self.assets_dir / "slimeGreen.png")
         for i in range(constants.STARTING_ENEMY_COUNT):
             image_no = random.randrange(4)
             enemy_sprite = Enemy_icon(image_list[image_no], SCALE)
@@ -133,8 +133,8 @@ class Board(arcade.Window):
             enemy_sprite.center_y = random.randrange(BOTTOM_LIMIT, TOP_LIMIT)
             enemy_sprite.center_x = random.randrange(LEFT_LIMIT, RIGHT_LIMIT)
 
-            enemy_sprite.change_x = random.random() * 2 - 1
-            enemy_sprite.change_y = random.random() * 2 - 1
+            enemy_sprite.change_x = random.random() * 3 - 1
+            enemy_sprite.change_y = random.random() * 3 - 1
 
             enemy_sprite.change_angle = (random.random() - 0.5) * 2
             enemy_sprite.size = 4
@@ -188,6 +188,9 @@ class Board(arcade.Window):
             if bullet.bottom > constants.SCREEN_WIDTH or bullet.top < 0 or bullet.right < 0 or bullet.left > constants.SCREEN_WIDTH:
                 bullet.remove_from_sprite_lists()
 
+        if arcade.check_for_collision_with_list(self.player_ship, self.enemy_ship_list):
+            arcade.close_window()
+
     def split_enemy(self, enemy: Enemy_icon):
         """ Split an enemy into smaller versions. """
         x = enemy.center_x
@@ -198,8 +201,8 @@ class Board(arcade.Window):
         if enemy.size == 4:
             for i in range(3):
                 image_no = random.randrange(2)
-                image_list = [":resources:images/enemies/wormGreen.png",
-                              ":resources:images/enemies/wormGreen_dead.png"]
+                image_list = [self.assets_dir / "wormGreen.png",
+                              self.assets_dir / "wormGreen_dead.png"]
 
                 enemy_sprite = Enemy_icon(image_list[image_no],
                                               SCALE * 1.5)
@@ -222,8 +225,8 @@ class Board(arcade.Window):
         elif enemy.size == 3:
             for i in range(3):
                 image_no = random.randrange(2)
-                image_list = [":resources:images/enemies/wormGreen.png",
-                              ":resources:images/enemies/wormGreen_dead.png"]
+                image_list = [self.assets_dir / "wormGreen.png",
+                              self.assets_dir / "wormGreen_dead.png"]
 
                 enemy_sprite = Enemy_icon(image_list[image_no],
                                               SCALE * 1.5)
@@ -246,8 +249,8 @@ class Board(arcade.Window):
         elif enemy.size == 2:
             for i in range(3):
                 image_no = random.randrange(2)
-                image_list = [":resources:images/enemies/wormGreen.png",
-                              ":resources:images/enemies/wormGreen_dead.png"]
+                image_list = [self.assets_dir / "wormGreen.png",
+                              self.assets_dir / "wormGreen_dead.png"]
 
                 enemy_sprite = Enemy_icon(image_list[image_no],
                                               SCALE * 1.5)
@@ -315,7 +318,7 @@ class Board(arcade.Window):
         """
 
         # Create a bullet
-        bullet = arcade.Sprite(":resources:images/space_shooter/laserBlue01.png", constants.SPRITE_SCALING_LASER)
+        bullet = arcade.Sprite(self.assets_dir / "laserRed01.png", constants.SPRITE_SCALING_LASER)
 
         # Position the bullet at the player's current location
         start_x = self.player_ship.center_x
