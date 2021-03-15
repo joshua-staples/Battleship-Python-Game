@@ -1,7 +1,5 @@
 import arcade
 import constants 
-from enemy import Enemy
-from player import Player
 
 class Score(arcade.Sprite):
     """handles the score output. Along with increaseing the score.
@@ -17,7 +15,7 @@ class Score(arcade.Sprite):
     """
 
     def __init__(self):
-        """The sut up of the score
+        """The set up of the score
         
         Args:
             score = init the score
@@ -27,9 +25,7 @@ class Score(arcade.Sprite):
         """
         # init the score
         self.score = 0
-        # self.enemy = Enemy()
-        # self.player = Player()
-    
+        
 
     def update_basic(self):
         """Will up date the score
@@ -43,7 +39,7 @@ class Score(arcade.Sprite):
 
 
     def update_final(self):
-        """Will up date the score
+        """Will up date the score for final enemy
 
         Args:
             None
@@ -55,7 +51,7 @@ class Score(arcade.Sprite):
         
 
     def on_draw(self):
-        """Will draw the score
+        """Will draw and keep track the score
             
         Args:
             score_output = text for the score
