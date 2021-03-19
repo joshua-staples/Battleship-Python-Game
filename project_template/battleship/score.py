@@ -31,21 +31,27 @@ class Score(arcade.Sprite):
         # self.player = Player()
     
 
-    def update(self):
+    def update_basic(self):
         """Will up date the score
 
         Args:
             None
 
         """
-        # Will need to figure out how to fix this code with the team.
-        # I don't know how we are going to consired when the score increases
-        # I think that it will be when the players bullets locations hits the enemy location
+        self.score += 10
+        return self.score
 
-        # Will need to find a way to know where the player hits the enemy
-        # if self.player == self.enemy:
-        #     # Do we need to change the score increase?
-        #     score += 10
+
+    def update_final(self):
+        """Will up date the score
+
+        Args:
+            None
+        
+        """
+        self.score += 50
+        return self.score
+        
         
 
     def on_draw(self):
@@ -55,6 +61,6 @@ class Score(arcade.Sprite):
             score_output = text for the score
 
         """
-        score_output = f"Score: {self.score}"
-        arcade.draw_text(score_output, 0, constants.SCREEN_HEIGHT - 20,
+        self.score_output = f"Score: {self.score}"
+        arcade.draw_text(self.score_output, 0, constants.SCREEN_HEIGHT - 20,
                          arcade.csscolor.WHITE, 18)
