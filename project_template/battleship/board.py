@@ -5,7 +5,8 @@ from player import Player
 from enemy import Enemy_icon
 from pathlib import Path
 from score import Score
-from menu import Menu
+from game_over_screen import Game_Over_Screen
+# from menu import Menu
 import math
 import random
 
@@ -103,6 +104,7 @@ class Board(arcade.Window):
                       self.assets_dir / "frog_move.png",
                       self.assets_dir / "frog.png",
                       self.assets_dir / "slimeGreen.png")
+
         for i in range(constants.STARTING_ENEMY_COUNT):
             image_no = random.randrange(4)
             enemy_sprite = Enemy_icon(image_list[image_no], constants.SCALE)
@@ -125,7 +127,7 @@ class Board(arcade.Window):
             None.
         """
         arcade.start_render()
-        menu = Menu()
+        # menu = Menu()
         # Draw all the Sprites 
         self.ship_list.draw()
         self.explosion_list.draw() 
@@ -166,7 +168,14 @@ class Board(arcade.Window):
                 bullet.remove_from_sprite_lists()
 
         if arcade.check_for_collision_with_list(self.player_ship, self.enemy_ship_list):
-            arcade.close_window()
+            """But game over screen here"""
+
+            #Will need to change how to access the file and run that file.
+            window = Game_Over_Screen()
+            window.on_draw()
+            self.window.show_view(window)
+            
+            # arcade.close_window()
 
     def split_enemy(self, enemy: Enemy_icon):
         """ Split an enemy into smaller versions. """
