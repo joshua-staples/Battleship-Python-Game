@@ -32,13 +32,6 @@ class Board(arcade.Window):
 
     """
 
-
-
-    #SPRITE_SCALING
-    SPRITE_SCALING = 0.5
-
-    SCALE = 0.5
-
     def __init__(self):
         """The set up of the board.
 
@@ -83,22 +76,6 @@ class Board(arcade.Window):
         Args:
             self.ship = instance of ship class
         """
-        
-        #GLOBAL VARIABLES
-        SCREEN_WIDTH = 800
-        SCREEN_HEIGHT = 600
-
-        STARTING_ENEMY_SHIP_COUNT = 10
-        SCALE = 0.5
-        OFFSCREEN_SPACE = 300
-        MUSIC_VOLUME = 0.5
-
-        SCREEN_TITLE = "Battle Ships beta team 6"
-        LEFT_LIMIT = -OFFSCREEN_SPACE
-        RIGHT_LIMIT = SCREEN_WIDTH + OFFSCREEN_SPACE
-        BOTTOM_LIMIT = -OFFSCREEN_SPACE
-        TOP_LIMIT = SCREEN_HEIGHT + OFFSCREEN_SPACE
-
         #score
         self.score = 0
 
@@ -118,7 +95,7 @@ class Board(arcade.Window):
         self.player_ship.center_x = constants.SCREEN_WIDTH/2
         self.player_ship.center_y = constants.SCREEN_HEIGHT/2
         self.ship_list.append(self.player_ship)
-        # self.wave_background = arcade.load_texture(":resources:assets/water-wave_1f30a.png")
+       
 
          # used frogs and other weird animals because I thought it would be fun
          # this will later be changed to something else if you guys want
@@ -128,11 +105,11 @@ class Board(arcade.Window):
                       self.assets_dir / "slimeGreen.png")
         for i in range(constants.STARTING_ENEMY_COUNT):
             image_no = random.randrange(4)
-            enemy_sprite = Enemy_icon(image_list[image_no], SCALE)
+            enemy_sprite = Enemy_icon(image_list[image_no], constants.SCALE)
             enemy_sprite.guid = "Enemy"
 
-            enemy_sprite.center_y = random.randrange(BOTTOM_LIMIT, TOP_LIMIT)
-            enemy_sprite.center_x = random.randrange(LEFT_LIMIT, RIGHT_LIMIT)
+            enemy_sprite.center_y = random.randrange(constants.BOTTOM_LIMIT, constants.TOP_LIMIT)
+            enemy_sprite.center_x = random.randrange(constants.LEFT_LIMIT, constants.RIGHT_LIMIT)
 
             enemy_sprite.change_x = random.random() * 3 - 1
             enemy_sprite.change_y = random.random() * 3 - 1
@@ -157,7 +134,6 @@ class Board(arcade.Window):
         self.enemy_ship_list.draw()
         
         self.output_Score.on_draw()
-        # arcade.draw_lrwh_rectangle_textured(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, self.wave_background)
 
     def on_update(self, delta_time):
         """updates the board
