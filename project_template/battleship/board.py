@@ -5,6 +5,7 @@ from player import Player
 from enemy import Enemy_icon
 from pathlib import Path
 from score import Score
+from menu import Menu
 import math
 import random
 
@@ -147,7 +148,7 @@ class Board(arcade.Window):
             None.
         """
         arcade.start_render()
-
+        menu = Menu()
         # Draw all the Sprites 
         self.ship_list.draw()
         self.explosion_list.draw() 
