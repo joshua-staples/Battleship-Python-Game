@@ -13,7 +13,7 @@ import random
 #for collisions
 from typing import cast
 
-class Board(arcade.Window):
+class Board(arcade.View):
     """Handles the output of the board. Along with the key inputs of the ship
     
     Code Based on:
@@ -41,7 +41,7 @@ class Board(arcade.Window):
             explosion_list = list of explosions
 
         """
-        super().__init__(constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT, constants.SCREEN_TITLE)
+        super().__init__()
 
         # Path declaration for images to be loaded from.
         self.cur_dir = Path(__file__).parent
@@ -71,7 +71,7 @@ class Board(arcade.Window):
 
                 
     
-    def setup(self):
+    def on_show(self):
         """Set up of the board.
 
         Args:
@@ -171,9 +171,8 @@ class Board(arcade.Window):
             """But game over screen here"""
 
             #Will need to change how to access the file and run that file.
-            window = Game_Over_Screen()
-            window.on_draw()
-            self.window.show_view(window)
+            game_over_view = Game_Over_Screen()
+            self.window.show_view(game_over_view)
             
             # arcade.close_window()
 
