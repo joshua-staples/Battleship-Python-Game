@@ -47,7 +47,7 @@ class Menu(arcade.View, arcade.Window):
         # instructions = Instructions()
         # self.window.show_view(instructions)
 
-        window = Board()
-        window.setup()
-        self.window.show_view(window)
+        board_view = Board()
+        # board_view.setup()
+        self.window.show_view(board_view)
 
