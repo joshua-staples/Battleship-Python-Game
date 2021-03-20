@@ -68,6 +68,10 @@ class Board(arcade.View):
         self.hit_sound2 = arcade.load_sound(":resources:sounds/coin2.wav")
         self.hit_sound3 = arcade.load_sound(":resources:sounds/coin3.wav")
         self.hit_sound4 = arcade.load_sound(":resources:sounds/coin4.wav")
+        self.background_music = arcade.load_sound(":resources:music/1918.mp3")
+
+        
+        arcade.play_sound(self.background_music)
 
                 
     
@@ -100,10 +104,10 @@ class Board(arcade.View):
 
          # used frogs and other weird animals because I thought it would be fun
          # this will later be changed to something else if you guys want
-        image_list = (self.assets_dir / "fishGreen.png",
-                      self.assets_dir / "frog_move.png",
-                      self.assets_dir / "frog.png",
-                      self.assets_dir / "slimeGreen.png")
+        image_list = (self.assets_dir / "enemy1.png",
+                      self.assets_dir / "enemy2.png",
+                      self.assets_dir / "enemy3.png",
+                      self.assets_dir / "enemy4.png")
 
         for i in range(constants.STARTING_ENEMY_COUNT):
             image_no = random.randrange(4)
@@ -186,8 +190,8 @@ class Board(arcade.View):
         if enemy.size == 4:
             for i in range(3):
                 image_no = random.randrange(2)
-                image_list = [self.assets_dir / "wormGreen.png",
-                              self.assets_dir / "wormGreen_dead.png"]
+                image_list = [self.assets_dir / "enemy4.png",
+                              self.assets_dir / "enemy3.png"]
 
                 enemy_sprite = Enemy_icon(image_list[image_no],
                                               SCALE * 1.5)
@@ -210,8 +214,8 @@ class Board(arcade.View):
         elif enemy.size == 3:
             for i in range(3):
                 image_no = random.randrange(2)
-                image_list = [self.assets_dir / "wormGreen.png",
-                              self.assets_dir / "wormGreen_dead.png"]
+                image_list = [self.assets_dir / "enemy3.png",
+                              self.assets_dir / "enemy2.png"]
 
                 enemy_sprite = Enemy_icon(image_list[image_no],
                                               SCALE * 1.5)
@@ -234,8 +238,8 @@ class Board(arcade.View):
         elif enemy.size == 2:
             for i in range(3):
                 image_no = random.randrange(2)
-                image_list = [self.assets_dir / "wormGreen.png",
-                              self.assets_dir / "wormGreen_dead.png"]
+                image_list = [self.assets_dir / "enemy2.png",
+                              self.assets_dir / "enemy1.png"]
 
                 enemy_sprite = Enemy_icon(image_list[image_no],
                                               SCALE * 1.5)
@@ -336,9 +340,3 @@ class Board(arcade.View):
 
         # Add the bullet to the appropriate lists
         self.bullet_list.append(bullet)
-
-    
-       
-       
-    
-
