@@ -47,9 +47,18 @@ class Score(arcade.Sprite):
         """
         self.score += 50
         return self.score
-        
-        
 
+
+    def finaly_score(self):
+        """Will draw the finaly score to the screen
+
+        Args:
+            None
+        """
+        arcade.draw_text(f"High Score: {self.score}", constants.SCREEN_WIDTH/2, constants.SCREEN_HEIGHT/2 + 100,
+                         arcade.color.WHITE, font_size=100, anchor_x="center")
+        
+        
     def on_draw(self):
         """Will draw and keep track the score
             
@@ -58,5 +67,22 @@ class Score(arcade.Sprite):
 
         """
         self.score_output = f"Score: {self.score}"
-        arcade.draw_text(self.score_output, 0, constants.SCREEN_HEIGHT - 20,
-                         arcade.csscolor.WHITE, 18)
+        arcade.draw_text(self.score_output, 0, constants.SCREEN_HEIGHT - 56,
+                         arcade.color.GOLD, 50)
+
+        # Tried colors
+        # Had to use .color, or .csscolor
+            # Liked:
+                # AQUAMARINE, RED, GOLD, GOLDEN_POPPY
+            
+            # Maybe:
+                # ROMAN_SILVER,
+
+            # Didn't Liked:
+                # SEA_GREEN, GRAY_BLUE
+
+            # GOLD_FUSION		 
+            # GOLDEN_BROWN		 
+            # GOLDEN_POPPY		 
+            # GOLDEN_YELLOW		 
+            # GOLDENROD

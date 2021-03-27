@@ -100,10 +100,10 @@ class Board(arcade.View):
         self.player_ship.center_x = constants.SCREEN_WIDTH/2
         self.player_ship.center_y = constants.SCREEN_HEIGHT/2
         self.ship_list.append(self.player_ship)
-       
 
-         # used frogs and other weird animals because I thought it would be fun
-         # this will later be changed to something else if you guys want
+
+        # used frogs and other weird animals because I thought it would be fun
+        # this will later be changed to something else if you guys want
         image_list = (self.assets_dir / "enemy1.png",
                       self.assets_dir / "enemy2.png",
                       self.assets_dir / "enemy3.png",
@@ -173,11 +173,12 @@ class Board(arcade.View):
 
         if arcade.check_for_collision_with_list(self.player_ship, self.enemy_ship_list):
             """Put game over screen here"""
-
+            self.output_Score.finaly_score()
+    
             #Will need to change how to access the file and run that file.
             game_over_view = Game_Over_Screen()
             self.window.show_view(game_over_view)
-            
+
             # arcade.close_window()
 
     def split_enemy(self, enemy: Enemy_icon):
