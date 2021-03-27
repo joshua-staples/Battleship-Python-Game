@@ -1,7 +1,8 @@
+from arcade.key import ENTER
 import constants
 import arcade
 
-class Game_Over_Screen(arcade.View):
+class Game_Over_Screen(arcade.View, arcade.Window):
     """ This handles showing the Game Over screen when the player loses or ends the game.
 
     Code gotten from the "view instruction and game over" example on 
@@ -12,7 +13,7 @@ class Game_Over_Screen(arcade.View):
     def on_show(self):
         """Change the back ground color.
 
-            This def may not work. Check for finaly realse.
+            This def may not work. Check for finaly release.
         """
         arcade.set_background_color(arcade.color.BLACK)
 
@@ -30,3 +31,4 @@ class Game_Over_Screen(arcade.View):
         """
         if arcade.key.ESCAPE:
             arcade.close_window()
+
