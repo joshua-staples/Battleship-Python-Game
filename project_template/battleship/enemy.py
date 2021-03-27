@@ -1,7 +1,9 @@
 import arcade
+import constants
 
 '''
     author: David Del Sol
+    editor: Logan Huston
     disclaimer: some of the functionality in this class
     has been inspired by previous games that I built using the arcade library
     both for pleasure
@@ -22,22 +24,6 @@ import arcade
     For more information please see: https://github.com/daviddelsol1998/Slime_Space_invaders
     '''
 
-
-SCREEN_WIDTH = 800
-SCREEN_HEIGHT = 600
-
-STARTING_ENEMY_COUNT = 10
-SCALE = 0.5
-OFFSCREEN_SPACE = 300
-MUSIC_VOLUME = 0.5
-
-
-LEFT_LIMIT = -OFFSCREEN_SPACE
-RIGHT_LIMIT = SCREEN_WIDTH + OFFSCREEN_SPACE
-BOTTOM_LIMIT = -OFFSCREEN_SPACE
-TOP_LIMIT = SCREEN_HEIGHT + OFFSCREEN_SPACE
-
-
 class Enemy_icon(arcade.Sprite):
     #uses sprite from arcade library resources
 
@@ -48,15 +34,16 @@ class Enemy_icon(arcade.Sprite):
     def update(self):
         #updates the position of the Enemy_icon sprite
         super().update()
-        if self.center_x < LEFT_LIMIT:
-            self.center_x = RIGHT_LIMIT
-        if self.center_x > RIGHT_LIMIT:
-            self.center_x = LEFT_LIMIT
-        if self.center_y > TOP_LIMIT:
-            self.center_y = BOTTOM_LIMIT
-        if self.center_y < BOTTOM_LIMIT:
-            self.center_y = TOP_LIMIT
+        if self.center_x < constants.LEFT_LIMIT:
+            self.center_x = constants.RIGHT_LIMIT
+        if self.center_x > constants.RIGHT_LIMIT:
+            self.center_x = constants.LEFT_LIMIT
+        if self.center_y > constants.TOP_LIMIT:
+            self.center_y = constants.BOTTOM_LIMIT
+        if self.center_y < constants.BOTTOM_LIMIT:
+            self.center_y = constants.TOP_LIMIT
 
+""" This is a redundant class that can be deleted.
 class Enemy(arcade.Sprite):
     #uses sprite from arcade library resources
 
@@ -67,11 +54,12 @@ class Enemy(arcade.Sprite):
     def update(self):
         #updates the position of the enemy sprite
         super().update()
-        if self.center_x < LEFT_LIMIT:
-            self.center_x = RIGHT_LIMIT
-        if self.center_x > RIGHT_LIMIT:
-            self.center_x = LEFT_LIMIT
-        if self.center_y > TOP_LIMIT:
-            self.center_y = BOTTOM_LIMIT
-        if self.center_y < BOTTOM_LIMIT:
-            self.center_y = TOP_LIMIT
+        if self.center_x < constants.LEFT_LIMIT:
+            self.center_x = constants.RIGHT_LIMIT
+        if self.center_x > constants.RIGHT_LIMIT:
+            self.center_x = constants.LEFT_LIMIT
+        if self.center_y > constants.TOP_LIMIT:
+            self.center_y = constants.BOTTOM_LIMIT
+        if self.center_y < constants.BOTTOM_LIMIT:
+            self.center_y = constants.TOP_LIMIT
+"""

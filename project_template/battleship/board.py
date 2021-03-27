@@ -110,8 +110,8 @@ class Board(arcade.View):
                       self.assets_dir / "enemy4.png")
 
         for i in range(constants.STARTING_ENEMY_COUNT):
-            image_no = random.randrange(4)
-            enemy_sprite = Enemy_icon(image_list[image_no], constants.SCALE)
+            # image_no = random.randrange(4)      This can be deleted.
+            enemy_sprite = Enemy_icon(self.assets_dir / "enemy1.png", constants.SCALE * 1.5)
             enemy_sprite.guid = "Enemy"
 
             enemy_sprite.center_y = random.randrange(constants.BOTTOM_LIMIT, constants.TOP_LIMIT)
@@ -173,9 +173,9 @@ class Board(arcade.View):
 
         if arcade.check_for_collision_with_list(self.player_ship, self.enemy_ship_list):
             """Put game over screen here"""
-            
             self.output_Score.finaly_score()
-            
+    
+            #Will need to change how to access the file and run that file.
             game_over_view = Game_Over_Screen()
             self.window.show_view(game_over_view)
 
@@ -186,17 +186,18 @@ class Board(arcade.View):
         x = enemy.center_x
         y = enemy.center_y
         self.score += 1
-        SCALE = 0.5
 
         if enemy.size == 4:
             for i in range(3):
-                image_no = random.randrange(2)
-                image_list = [self.assets_dir / "enemy4.png",
-                              self.assets_dir / "enemy3.png"]
+                """ These 3 blocks of commented out code in this class can be deleted.
+                #image_no = random.randrange(2)
+                #image_list = [self.assets_dir / "enemy2.png",
+                #              self.assets_dir / "enemy2.png"]
 
-                enemy_sprite = Enemy_icon(image_list[image_no],
-                                              SCALE * 1.5)
-
+                #enemy_sprite = Enemy_icon(image_list[image_no],
+                #                              SCALE * 1.5)
+                """
+                enemy_sprite = Enemy_icon(self.assets_dir / "enemy2.png", constants.SCALE * 1.5)
                 enemy_sprite.center_y = y
                 enemy_sprite.center_x = x
 
@@ -214,13 +215,15 @@ class Board(arcade.View):
 
         elif enemy.size == 3:
             for i in range(3):
+                """
                 image_no = random.randrange(2)
                 image_list = [self.assets_dir / "enemy3.png",
-                              self.assets_dir / "enemy2.png"]
+                              self.assets_dir / "enemy3.png"]
 
                 enemy_sprite = Enemy_icon(image_list[image_no],
                                               SCALE * 1.5)
-
+                """
+                enemy_sprite = Enemy_icon(self.assets_dir / "enemy3.png", constants.SCALE * 1.5)
                 enemy_sprite.center_y = y
                 enemy_sprite.center_x = x
 
@@ -238,13 +241,15 @@ class Board(arcade.View):
 
         elif enemy.size == 2:
             for i in range(3):
+                """
                 image_no = random.randrange(2)
-                image_list = [self.assets_dir / "enemy2.png",
-                              self.assets_dir / "enemy1.png"]
+                image_list = [self.assets_dir / "enemy4.png",
+                              self.assets_dir / "enemy4.png"]
 
                 enemy_sprite = Enemy_icon(image_list[image_no],
                                               SCALE * 1.5)
-
+                """
+                enemy_sprite = Enemy_icon(self.assets_dir / "enemy4.png", constants.SCALE * 1.5)
                 enemy_sprite.center_y = y
                 enemy_sprite.center_x = x
 
@@ -332,7 +337,7 @@ class Board(arcade.View):
         # Angle the bullet sprite so it doesn't look like it is flying
         # sideways.
         bullet.angle = math.degrees(angle)
-        print(f"Bullet angle: {bullet.angle:.2f}")
+        # print(f"Bullet angle: {bullet.angle:.2f}")
 
         # Taking into account the angle, calculate our change_x
         # and change_y. Velocity is how fast the bullet travels.
