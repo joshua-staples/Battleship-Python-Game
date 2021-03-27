@@ -41,13 +41,8 @@ class Menu(arcade.View, arcade.Window):
         arcade.draw_text('Spencer Wigren', constants.SCREEN_WIDTH/2-650, constants.SCREEN_HEIGHT/2+100, arcade.color.WHITE, font_size=20, anchor_x="left")
 
     def on_mouse_press(self, _x, _y, _button, _modifiers):
+        """Will start the game and clears the menu screen.
         """
-        """
-        # self.screen.clear(self.background_color)
-        # instructions = Instructions()
-        # self.window.show_view(instructions)
-
         board_view = Board()
-        # board_view.setup()
         self.window.show_view(board_view)
 

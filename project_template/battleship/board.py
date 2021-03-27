@@ -60,21 +60,16 @@ class Board(arcade.View):
         self.output_Score = Score()
 
         #Sounds
-        #you can use this one for the bullet 
-        #self.laser_sound = arcade.load_sound(":resources:sounds/hit5.wav")
-
-        #this ones are triggered when coallision happens
+        #these ones are triggered when coallision happens
         self.hit_sound1 = arcade.load_sound(":resources:sounds/coin1.wav")
         self.hit_sound2 = arcade.load_sound(":resources:sounds/coin2.wav")
         self.hit_sound3 = arcade.load_sound(":resources:sounds/coin3.wav")
         self.hit_sound4 = arcade.load_sound(":resources:sounds/coin4.wav")
         self.background_music = arcade.load_sound(":resources:music/1918.mp3")
 
-        
         arcade.play_sound(self.background_music)
 
                 
-    
     def on_show(self):
         """Set up of the board.
 
@@ -90,27 +85,18 @@ class Board(arcade.View):
         self.enemy_list = arcade.SpriteList() 
         self.bullet_list = arcade.SpriteList() 
 
-        # self.enemy = Enemy(self.assets_dir / "F5S4.png", constants.SPRITE_SCALING)
-        # self.enemy.center_x = 100
-        # self.enemy.center_y = 100
-        # self.enemy_list.append(self.Enemy)
-        # :resources:assets/motor-boat_1f6e5-fe0f.png
-
         self.player_ship = Ship(self.assets_dir / "motor-boat_1f6e5-fe0f.png", constants.SPRITE_SCALING)
         self.player_ship.center_x = constants.SCREEN_WIDTH/2
         self.player_ship.center_y = constants.SCREEN_HEIGHT/2
         self.ship_list.append(self.player_ship)
 
-
-        # used frogs and other weird animals because I thought it would be fun
-        # this will later be changed to something else if you guys want
+        # All enemy images
         image_list = (self.assets_dir / "enemy1.png",
                       self.assets_dir / "enemy2.png",
                       self.assets_dir / "enemy3.png",
                       self.assets_dir / "enemy4.png")
 
         for i in range(constants.STARTING_ENEMY_COUNT):
-            # image_no = random.randrange(4)      This can be deleted.
             enemy_sprite = Enemy_icon(self.assets_dir / "enemy1.png", constants.SCALE * 1.5)
             enemy_sprite.guid = "Enemy"
 
@@ -124,6 +110,7 @@ class Board(arcade.View):
             enemy_sprite.size = 4
             self.enemy_ship_list.append(enemy_sprite)
 
+
     def on_draw(self):
         """Draws the board
 
@@ -131,12 +118,12 @@ class Board(arcade.View):
             None.
         """
         arcade.start_render()
-        # menu = Menu()
+
         # Draw all the Sprites 
         self.ship_list.draw()
         self.explosion_list.draw() 
         self.bullet_list.draw()
-        #self.enemy_list.draw()
+        # self.enemy_list.draw()
         self.enemy_ship_list.draw()
         
         self.output_Score.on_draw()
@@ -154,12 +141,6 @@ class Board(arcade.View):
         # Loop through each bullet
         for bullet in self.bullet_list:
             enemies = arcade.check_for_collision_with_list(bullet, self.enemy_ship_list)
-            # # Check this bullet to see if it hit a coin
-            # hit_list = arcade.check_for_collision_with_list(bullet, self.coin_list)
-
-            # # If it did, get rid of the bullet
-            # if len(hit_list) > 0:
-            #     bullet.remove_from_sprite_lists()
 
             # # For every coin (enemy) we hit, add to the score and remove the coin
             for enemy in enemies:
@@ -179,7 +160,6 @@ class Board(arcade.View):
             game_over_view = Game_Over_Screen()
             self.window.show_view(game_over_view)
 
-            # arcade.close_window()
 
     def split_enemy(self, enemy: Enemy_icon):
         """ Split an enemy into smaller versions. """
@@ -189,14 +169,6 @@ class Board(arcade.View):
 
         if enemy.size == 4:
             for i in range(3):
-                """ These 3 blocks of commented out code in this class can be deleted.
-                #image_no = random.randrange(2)
-                #image_list = [self.assets_dir / "enemy2.png",
-                #              self.assets_dir / "enemy2.png"]
-
-                #enemy_sprite = Enemy_icon(image_list[image_no],
-                #                              SCALE * 1.5)
-                """
                 enemy_sprite = Enemy_icon(self.assets_dir / "enemy2.png", constants.SCALE * 1.5)
                 enemy_sprite.center_y = y
                 enemy_sprite.center_x = x
@@ -215,14 +187,6 @@ class Board(arcade.View):
 
         elif enemy.size == 3:
             for i in range(3):
-                """
-                image_no = random.randrange(2)
-                image_list = [self.assets_dir / "enemy3.png",
-                              self.assets_dir / "enemy3.png"]
-
-                enemy_sprite = Enemy_icon(image_list[image_no],
-                                              SCALE * 1.5)
-                """
                 enemy_sprite = Enemy_icon(self.assets_dir / "enemy3.png", constants.SCALE * 1.5)
                 enemy_sprite.center_y = y
                 enemy_sprite.center_x = x
@@ -241,14 +205,6 @@ class Board(arcade.View):
 
         elif enemy.size == 2:
             for i in range(3):
-                """
-                image_no = random.randrange(2)
-                image_list = [self.assets_dir / "enemy4.png",
-                              self.assets_dir / "enemy4.png"]
-
-                enemy_sprite = Enemy_icon(image_list[image_no],
-                                              SCALE * 1.5)
-                """
                 enemy_sprite = Enemy_icon(self.assets_dir / "enemy4.png", constants.SCALE * 1.5)
                 enemy_sprite.center_y = y
                 enemy_sprite.center_x = x
@@ -266,6 +222,7 @@ class Board(arcade.View):
             self.output_Score.update_basic()
 
         elif enemy.size == 1:
+            # Will play the last sound
             self.hit_sound4.play()
 
             # Will update the score
