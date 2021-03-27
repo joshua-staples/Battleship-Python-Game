@@ -21,7 +21,6 @@ class Score(arcade.Sprite):
             score = init the score
             enemy = class of Enemy()
             player = class of Player()
-
         """
         # init the score
         self.score = 0
@@ -32,7 +31,6 @@ class Score(arcade.Sprite):
 
         Args:
             None
-
         """
         self.score += 10
         return self.score
@@ -43,7 +41,6 @@ class Score(arcade.Sprite):
 
         Args:
             None
-        
         """
         self.score += 50
         return self.score
@@ -64,11 +61,10 @@ class Score(arcade.Sprite):
             
         Args:
             score_output = text for the score
-
         """
         self.score_output = f"Score: {self.score}"
         arcade.draw_text(self.score_output, 0, constants.SCREEN_HEIGHT - 56,
-                         arcade.color.GOLD, 50)
+                         arcade.color.GOLDENROD, 50)
 
         # Tried colors
         # Had to use .color, or .csscolor
