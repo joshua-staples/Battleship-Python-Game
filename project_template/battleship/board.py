@@ -69,6 +69,11 @@ class Board(arcade.View):
 
         arcade.play_sound(self.background_music)
 
+        # Track the current state of what key is pressed
+        self.a_pressed = False
+        self.d_pressed = False
+        self.w_pressed = False
+        self.s_pressed = False
                 
     def on_show(self):
         """Set up of the board.
@@ -129,14 +134,33 @@ class Board(arcade.View):
         self.output_Score.on_draw()
 
     def on_update(self, delta_time):
-        """updates the board
+        """updates the board including player movement. This is more seamlessly done in update than on key pressed. 
+        Used with modification from: https://arcade.academy/examples/sprite_move_keyboard_better.html
 
         Args:
             delta_time Archad: [description]
         """
+
+        # Calculate speed based on the keys pressed
+        self.player_ship.change_x = 0
+        self.player_ship.change_y = 0
+
+        if self.w_pressed and not self.s_pressed:
+            self.player_ship.change_y = constants.MOVEMENT_SPEED
+        elif self.s_pressed and not self.w_pressed:
+            self.player_ship.change_y = -constants.MOVEMENT_SPEED
+        if self.a_pressed and not self.d_pressed:
+            self.player_ship.change_x = -constants.MOVEMENT_SPEED
+        elif self.d_pressed and not self.a_pressed:
+            self.player_ship.change_x = constants.MOVEMENT_SPEED
+
+        # Call update to move the sprite
+        # If using a physics engine, call update player to rely on physics engine
+        # for movement, and call physics engine here.
+        self.player_ship.update()
+
         self.enemy_ship_list.update()
         self.bullet_list.update()
-        self.player_ship.update()
 
         # Loop through each bullet
         for bullet in self.bullet_list:
@@ -238,13 +262,13 @@ class Board(arcade.View):
 
         # If the player presses a key, update the speed
         if key == arcade.key.W:
-            self.player_ship.change_y = constants.MOVEMENT_SPEED
+            self.w_pressed = True
         elif key == arcade.key.S:
-            self.player_ship.change_y = -constants.MOVEMENT_SPEED
+            self.s_pressed = True
         elif key == arcade.key.A:
-            self.player_ship.change_x = -constants.MOVEMENT_SPEED
+            self.a_pressed = True
         elif key == arcade.key.D:
-            self.player_ship.change_x = constants.MOVEMENT_SPEED
+            self.d_pressed = True
 
     def on_key_release(self, key, modifiers):
         """Called when the user releases a key.
@@ -257,10 +281,14 @@ class Board(arcade.View):
         # This doesn't work well if multiple keys are pressed.
         # Use 'better move by keyboard' example if you need to
         # handle this.
-        if key == arcade.key.W or key == arcade.key.S:
-            self.player_ship.change_y = 0
-        elif key == arcade.key.A or key == arcade.key.D:
-            self.player_ship.change_x = 0       
+        if key == arcade.key.W:
+            self.w_pressed = False
+        elif key == arcade.key.S:
+            self.s_pressed = False
+        elif key == arcade.key.A:
+            self.a_pressed = False
+        elif key == arcade.key.D:
+            self.d_pressed = False      
 
     def on_mouse_press(self, x, y, button, modifiers):
         """ Called whenever the mouse button is clicked. 
