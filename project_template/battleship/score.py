@@ -44,16 +44,10 @@ class Score(arcade.Sprite):
         """
         self.score += 50
         return self.score
-
-
-    def finaly_score(self):
-        """Will draw the finaly score to the screen
-
-        Args:
-            None
-        """
-        arcade.draw_text(f"High Score: {self.score}", constants.SCREEN_WIDTH/2, constants.SCREEN_HEIGHT/2 + 100,
-                         arcade.color.WHITE, font_size=100, anchor_x="center")
+        
+    
+    def get_score(self):
+        return self.score
         
         
     def on_draw(self):
