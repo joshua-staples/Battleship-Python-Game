@@ -177,12 +177,12 @@ class Board(arcade.View):
                 bullet.remove_from_sprite_lists()
 
         if arcade.check_for_collision_with_list(self.player_ship, self.enemy_ship_list):
-            """Put game over screen here"""
-            self.output_Score.finaly_score()
-    
+            """Put game over screen here"""    
             #Will need to change how to access the file and run that file.
             game_over_view = Game_Over_Screen()
+            game_over_view.final_score = self.output_Score.get_score()
             self.window.show_view(game_over_view)
+
 
 
     def split_enemy(self, enemy: Enemy_icon):
