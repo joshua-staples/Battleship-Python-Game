@@ -17,7 +17,7 @@ class Menu(arcade.View, arcade.Window):
 
     def on_show(self):
         # super().__init__(constants.SCREEN_WIDTH)
-        arcade.set_background_color(arcade.color.AIR_SUPERIORITY_BLUE)
+        arcade.set_background_color(arcade.color.BROWN_NOSE)
         arcade.set_viewport(0, constants.SCREEN_WIDTH - 1, 0, constants.SCREEN_HEIGHT - 1)
 
 

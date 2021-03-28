@@ -40,5 +40,3 @@ class Ship(arcade.Sprite):
             self.bottom = 0
         elif self.top > constants.SCREEN_HEIGHT - 1:
             self.top = constants.SCREEN_HEIGHT - 1
-
-    
