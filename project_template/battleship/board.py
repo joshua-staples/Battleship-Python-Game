@@ -1,7 +1,6 @@
 from ship import Ship
 import arcade
 import constants
-from player import Player
 from enemy import Enemy_icon
 from pathlib import Path
 from score import Score
