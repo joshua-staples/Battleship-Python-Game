@@ -5,7 +5,6 @@ from enemy import Enemy_icon
 from pathlib import Path
 from score import Score
 from game_over_screen import Game_Over_Screen
-# from menu import Menu
 import math
 import random
 
@@ -37,7 +36,6 @@ class Board(arcade.View):
 
         Args:
             ship_list = list of ships
-            explosion_list = list of explosions
 
         """
         super().__init__()
@@ -48,11 +46,9 @@ class Board(arcade.View):
 
         # varables that will hold future spriteLists
         self.ship_list = None
-        self.explosion_list = None
         self.enemy_list = None
         self.enemy_ship_list = arcade.SpriteList()
         self.bullet_list = None
-        # self.wave_background = None
 
         arcade.set_background_color(arcade.csscolor.CORNFLOWER_BLUE)
         
@@ -84,8 +80,7 @@ class Board(arcade.View):
         self.score = 0
 
         # Sprite Lists
-        self.ship_list = arcade.SpriteList() 
-        self.explosion_list = arcade.SpriteList() 
+        self.ship_list = arcade.SpriteList()  
         self.enemy_list = arcade.SpriteList() 
         self.bullet_list = arcade.SpriteList() 
 
@@ -124,10 +119,8 @@ class Board(arcade.View):
         arcade.start_render()
 
         # Draw all the Sprites 
-        self.ship_list.draw()
-        self.explosion_list.draw() 
+        self.ship_list.draw() 
         self.bullet_list.draw()
-        # self.enemy_list.draw()
         self.enemy_ship_list.draw()
         
         self.output_Score.on_draw()
