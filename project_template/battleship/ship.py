@@ -1,7 +1,7 @@
-    """The Ship class is in charge of overrding the update method for the player.
+"""The Ship class is in charge of overrding the update method for the player.
     Ship is a subclass of sprite so a ship will still have access to all of the sprite methods. 
     The update method in the ship class has been changed to move the player to a new x/y location.
-    """
+"""
 import arcade
 import constants
 

@@ -1,3 +1,10 @@
+"""The score class is in chage of handeling the score.
+    Score is a subclass of sprite so it will have access to draw the score.
+    The update basic method handles the basic score update when the ship slits up.
+    The update final method handles the socer update when ship is totoaly destroyed.
+    The get_score method will return the score.
+    The on draw method will draw the score in the top left hand corner.
+"""
 import arcade
 import constants 
 
