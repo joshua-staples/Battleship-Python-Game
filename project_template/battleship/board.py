@@ -1,4 +1,4 @@
-"""Will handle the outpue and control of the program
+"""Will handle the output and control of the program
     Board is a subclass of view.
     on_show will set up the board.
     on_draw will draw the sprites.
@@ -8,8 +8,6 @@
     on_key_relase will hadle when the user relases the key
     on_mouse_press will hadle the bullet from the user imput
 """
-
-
 from ship import Ship
 import arcade
 import constants
