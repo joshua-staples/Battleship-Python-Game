@@ -1,6 +1,3 @@
-import arcade
-import constants
-
 '''
     author: David Del Sol
     editor: Logan Huston
@@ -24,14 +21,35 @@ import constants
     For more information please see: https://github.com/daviddelsol1998/Slime_Space_invaders
     '''
 
+import arcade
+import constants
+
 class Enemy_icon(arcade.Sprite):
+    """Handles the enemy icon posion.
+
+    Sterotype:
+        Coordinator
+        
+    Authors:
+        David Del Sol
+    """
     #uses sprite from arcade library resources
 
     def __init__(self, image_file_name, scale):
+        """Sett up of the file. Will set the size to zero
+
+        Args:
+            None
+        """
         super().__init__(image_file_name, scale=scale)
         self.size = 0
 
     def update(self):
+        """Will update the position of the enemy sprite
+
+        Args:
+            None
+        """
         #updates the position of the Enemy_icon sprite
         super().update()
         if self.center_x < constants.LEFT_LIMIT:

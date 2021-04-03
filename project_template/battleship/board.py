@@ -1,3 +1,15 @@
+"""Will handle the outpue and control of the program
+    Board is a subclass of view.
+    on_show will set up the board.
+    on_draw will draw the sprites.
+    on_update will update the board.
+    splite_enemy will handle the enemy spliting.
+    on_key_press will handle user input.
+    on_key_relase will hadle when the user relases the key
+    on_mouse_press will hadle the bullet from the user imput
+"""
+
+
 from ship import Ship
 import arcade
 import constants
@@ -74,7 +86,9 @@ class Board(arcade.View):
         """Set up of the board.
 
         Args:
-            self.ship = instance of ship class
+            self.ship_list = instance of ship class
+            self.enemy_list = instance of enemy
+            self.bullet_list = instance of bullet
         """
         #score
         self.score = 0
@@ -114,7 +128,7 @@ class Board(arcade.View):
         """Draws the board
 
         Args:
-            None.
+            output_score.on_draw = instance of score class
         """
         arcade.start_render()
 
@@ -130,7 +144,7 @@ class Board(arcade.View):
         Used with modification from: https://arcade.academy/examples/sprite_move_keyboard_better.html
 
         Args:
-            delta_time Archad: [description]
+            None
         """
 
         # Calculate speed based on the keys pressed
@@ -178,7 +192,14 @@ class Board(arcade.View):
 
 
     def split_enemy(self, enemy: Enemy_icon):
-        """ Split an enemy into smaller versions. """
+        """ Split an enemy into smaller versions.
+        
+        Args:
+            x = enemy location 
+            y = enemy location
+            self.score = instance of score class
+        """
+        
         x = enemy.center_x
         y = enemy.center_y
         self.score += 1
@@ -287,6 +308,12 @@ class Board(arcade.View):
         
         Taken from: https://arcade.academy/examples/sprite_bullets_aimed.html#sprite-bullets-aimed
         with slight modification of Sprite names.
+        
+        Args:
+            bullet = sprite of bullet, instance of enemy
+            start_x = player locaton
+            start_y = player location
+
         """
 
         # Create a bullet
