@@ -1,5 +1,5 @@
 # Battleship AI
-PLay as a battleship against incoming hoards of pirate boats.
+Play as a battleship against incoming hoards of pirate boats.
 Kill a pirate and they muliply like the head of a hydra.
 Crash into a pirate ship and the game is over. 
 How many pirates can you slay, and how long can you survive against the onslaught. 
