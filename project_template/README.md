@@ -1,16 +1,8 @@
 # Battleship AI
-One player battleship against an "AI" opponent. 
-Possible options for difficulty. (ie. ship size, or board size)
-Custom option where you can manually set board size and ship length. 
-Your ships on the left (sperate board) and guess board on right. 
-Sound and effects for a hit and a miss. (wave emojis, explosion emoji, splash, green circle, and red x.)
-Posilble time limit per move.
-No two player functionality.
-
-easy
-normal 
-hard
-custom
+PLay as a battleship against incoming hoards of pirate boats.
+Kill a pirate and they muliply like the head of a hydra.
+Crash into a pirate ship and the game is over. 
+How many pirates can you slay, and how long can you survive against the onslaught. 
 
 ## Getting Started
 ---
@@ -27,6 +19,13 @@ root                    (project root folder)
   +-- data              (program data files)
   +-- __init__.py       (python package file)
   +-- __main__.py       (entry point for program)
+  +-- board.py          (place for all characters and updates to happen)
+  +-- enemy.py          (handles all of the updating for the enemy ships)
+  +-- ship.py           (handles all of the updating for the players ship)
+  +-- menu.py           (opens a view for the instructions to be displayed)
+  +-- game_over_screen.py (opens a view for the game over screen to be displayed when a player dies)
+  +-- score.py          (holds all of the scoring information for the player)
+  +-- constants.py      (holds all constant values that will not change during gameplay)
 +-- LICENSE             (license file)
 +-- README.md           (general info)
 ```
